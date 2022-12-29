@@ -25,6 +25,7 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import id.co.polbeng.clinicsapp.R
@@ -35,7 +36,7 @@ import id.co.polbeng.clinicsapp.ui.theme.ClinicsAppTheme
 data class NavigationButtonItem(
     val title: String,
     val icon: ImageVector,
-    val screen: Screen
+    val screen: Screen,
 )
 
 @Composable
@@ -100,12 +101,26 @@ fun HomeScreen(
                     )
                 )
 
-                navigationButtonItem.map { item ->
+                navigationButtonItem.forEachIndexed { index, item ->
                     CustomButton(
-                        modifier = Modifier.height(48.dp),
+                        modifier = Modifier
+                            .padding(
+                                bottom = when (index) {
+                                    navigationButtonItem.size - 1 -> 0.dp
+                                    else -> 16.dp
+                                },
+                            )
+                            .height(48.dp),
                         text = item.title,
                         onClick = {
-                            navController.navigate(item.screen.route)
+                            navController.navigate(item.screen.route) {
+                                popUpTo(navController.graph.findStartDestination().id) {
+                                    saveState = true
+                                }
+
+                                restoreState = true
+                                launchSingleTop = true
+                            }
                         },
                         imageVector = {
                             Icon(

@@ -41,6 +41,18 @@ fun Activity.rememberWindowSizeState(): WindowSize {
     return getWindowSizeState(windowDpSize = windowDpSize)
 }
 
+@Composable
+fun rememberWindowSizeState(): WindowSize {
+    val configuration = LocalConfiguration.current
+    val screenWidthDp = configuration.screenWidthDp.dp
+
+    return when {
+        screenWidthDp < 600.dp -> WindowSize.COMPACT
+        screenWidthDp < 840.dp -> WindowSize.MEDIUM
+        else -> WindowSize.EXPANDED
+    }
+}
+
 sealed interface DevicePosture {
     object NormalPosture : DevicePosture
 

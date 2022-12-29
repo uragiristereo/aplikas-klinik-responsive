@@ -51,7 +51,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    ClinicsApp(windowSize = windowSize, devicePosture = devicePosture)
+                    ClinicsApp()
                 }
             }
         }
