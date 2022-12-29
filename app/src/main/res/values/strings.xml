@@ -1,0 +1,39 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Clinics App</string>
+
+    <string name="screen_home">Home</string>
+    <string name="screen_about">About Us</string>
+    <string name="screen_schedule">Doctor\'s Schedule</string>
+    <string name="screen_registration">Patient Registration</string>
+    <string name="screen_member">Save My Card</string>
+
+    <string name="label_name">Name</string>
+    <string name="label_nik">NIK</string>
+    <string name="label_age">Age</string>
+    <string name="label_address">Address</string>
+    <string name="label_profession">Profession</string>
+    <string name="label_phone_number">Phone Number</string>
+    <string name="label_gender">Gender</string>
+    <string name="label_specialist">Specialist</string>
+
+    <string-array name="genders">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+    <string-array name="professions">
+        <item>Not Work</item>
+        <item>State Apparatus/Officials</item>
+        <item>Teachers</item>
+        <item>Entrepreneur</item>
+        <item>Agriculture/Livestock</item>
+        <item>Fisherman</item>
+        <item>Religion And Beliefs</item>
+        <item>Student</item>
+        <item>Health Workers</item>
+        <item>Retirement</item>
+        <item>Other</item>
+    </string-array>
+
+    <string name="welcome">Welcome to the Tenggayun Health Center service system</string>
+    <string name="btn_submit">Submit</string>
+</resources>
